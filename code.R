@@ -67,8 +67,8 @@ optim(par = c(1, 1), fn = earsom, method = "BFGS")
 
 set.seed(0)
 
-AdequacyModel::pso(func = earsom, S = 250, lim_inf = rep(-100, 2),
-                   lim_sup = rep(100, 2), e = 0.1, N = 100, prop = 0.2)
+result <- AdequacyModel::pso(func = earsom, S = 5000, lim_inf = rep(-100, 2),
+                   lim_sup = rep(100, 2), e = 1e-8, N = 1000, prop = 0.4)
 
-pso::psoptim(rep(NA,2), rearsom,
+pso::psoptim(rep(NA,2), earsom,
              lower=-100,upper=100)
