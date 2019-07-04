@@ -53,9 +53,9 @@ args <- list(
   S = 150,
   lim_inf = rep(-5.12, 2),
   lim_sup = rep(5.12, 2),
-  e = 0.0001,
-  N = 30L,
-  prop = 0.05
+  e = 1e-4,
+  N = 50L,
+  prop = 0.1
 )
 
 # onestep(list_args = args)
@@ -68,7 +68,7 @@ set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
 result <-
   mclapply(
-    X = 1:100L,
+    X = 1:4L,
     FUN = onestep,
     mc.cores = detectCores(),
     list_args = args
