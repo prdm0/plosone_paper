@@ -67,7 +67,7 @@ set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
 result <-
   mclapply(
-    X = 1:4L,
+    X = 1:100L,
     FUN = onestep,
     mc.cores = detectCores(),
     list_args = args
@@ -96,9 +96,7 @@ z <- rastrigin_plot(x, y)
 image.plot(x,y,z)
 contour(seq(-5.12, 5.12, length.out = nrow(z)),
          seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
+points(par_1, par_2, pch = 16, col = rgb(1,1,1))
 
-#ramp <- colorRampPalette(colors = c("#0000FF", "#FFFF00", "#FF0000"))
-#plotly::plot_ly(x, y, z = ~z, type = "contour", colors = ramp(5),
-#                contours = list(showlabels = TRUE))
 
 
