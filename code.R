@@ -22,7 +22,6 @@
 
 library(tidyverse)
 
-
 # Rastrigin Function: -----------------------------------------------------
 
 rastrigin <- function(par, x, A = 10L) {
@@ -80,4 +79,24 @@ par_2 <- result[names(result) == "par2"]
 value <- result[names(result) == "value"]
 
 
+# Graphic -----------------------------------------------------------------
+library(plot3D)
+
+M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 500), 
+                   seq(-5.12,  5.12, length.out = 500))
+x  <- M$x ; y <- M$y
+
+rastrigin_plot <- function(x,y){
+  20  + (x^2 - 10 * cos(2*pi*x)) + (y^2 - 10 * cos(2*pi*y))
+}
+
+z <- rastrigin_plot(x, y)
+
+ramp <- colorRampPalette(colors = c("#0000FF", "#FFFF00", "#FF0000"))
+
+plotly::plot_ly(z = ~z, type = "contour", colors = ramp(5),
+                contours = list(showlabels = TRUE))
+
+#contour2D(x,y,z,inttype=1,bty="b2",phi=10, theta=130)
+#points(par_1,par_2)
 
