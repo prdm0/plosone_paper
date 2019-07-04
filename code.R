@@ -81,6 +81,8 @@ value <- result[names(result) == "value"]
 
 # Graphic -----------------------------------------------------------------
 library(plot3D)
+library(fields)
+#library(plotly)
 
 M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 500), 
                    seq(-5.12,  5.12, length.out = 500))
@@ -91,12 +93,12 @@ rastrigin_plot <- function(x,y){
 }
 
 z <- rastrigin_plot(x, y)
+image.plot(x,y,z)
+contour(seq(-5.12, 5.12, length.out = nrow(z)),
+         seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
 
-ramp <- colorRampPalette(colors = c("#0000FF", "#FFFF00", "#FF0000"))
+#ramp <- colorRampPalette(colors = c("#0000FF", "#FFFF00", "#FF0000"))
+#plotly::plot_ly(x, y, z = ~z, type = "contour", colors = ramp(5),
+#                contours = list(showlabels = TRUE))
 
-plotly::plot_ly(z = ~z, type = "contour", colors = ramp(5),
-                contours = list(showlabels = TRUE))
-
-#contour2D(x,y,z,inttype=1,bty="b2",phi=10, theta=130)
-#points(par_1,par_2)
 
