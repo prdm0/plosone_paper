@@ -92,11 +92,17 @@ rastrigin_plot <- function(x,y){
   20  + (x^2 - 10 * cos(2*pi*x)) + (y^2 - 10 * cos(2*pi*y))
 }
 
+
+# plot.new()
+# plot.window(xlim = c(-5.5, 6), ylim = c(-6, 6))
+# axis(1); axis(2)
+
 z <- rastrigin_plot(x, y)
-image.plot(x,y,z)
+image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]))
 contour(seq(-5.12, 5.12, length.out = nrow(z)),
          seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
-points(par_1, par_2, pch = 16, col = rgb(1,1,1))
+points(par_1, par_2, pch = 20, col = rgb(1,1,1))
+
 
 
 
