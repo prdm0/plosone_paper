@@ -1,25 +1,3 @@
-# Consideration of reviewers. ---------------------------------------------
-
-# Reviewer #2: The paper describes an R package (AdequacyModel) that uses particle swarm optimization
-# (PSO) as a tool for general purpose optimization and for deriving maximum likelihood estimates for the
-# parameters of probability distributions. The package also presents some goodness-of-fit tests. Such a
-# computational library is of great interest for the statistical, mathematical, engineering communities,
-# the paper is generally well written and organized. However, the results and examples provided in the manuscript
-# do not clearly demonstrate the differences (advantages / disadvantages) of AdequacyModel when compared to other
-# available packages (e.g. "pso") and PSO methods. Paper contribution should be clearly stated and supported by the
-# results. The following issues should be addressed by the authors:
-
-# In portuguese (native language):
-
-# O documento descreve um pacote de R (AdequacyModel) que utiliza optimização enxame de partículas
-# (PSO) como uma ferramenta para a optimização de uso geral e para derivar estimativas de
-# probabilidade máxima para os parâmetros de distribuições de probabilidade. O pacote também
-# apresenta alguns testes bondade-de-ajuste. Tal biblioteca computacional é de grande interesse para
-# as comunidades, engenharia estatísticos, matemáticos, o papel é geralmente bem escrito e organizado.
-# No entanto, os resultados e exemplos fornecidos em manuscrito não demonstram claramente as diferenças
-# (vantagens / desvantagens) de AdequacyModel quando comparado com outros pacotes disponíveis (por exemplo, "PSO")
-# e métodos de OSP. contribuição do papel deve ser claramente indicado e apoiado pelos resultados.
-
 # install.packages("purrr")
 # install.packages("rlang")
 # install.packages("AdequacyModel")
@@ -43,14 +21,14 @@ rastrigin <- function(par, x, A = 10L) {
 
 # Monte Carlo (PSO of the AdequacyModel package) --------------------------
 
-library(parallel) # OpenMP.
-
-
 # One step (Monte Carlo)
 onestep <- function(x, list_args) {
-  result <- do.call(getExportedValue("AdequacyModel", "pso"), args = list_args)
+  result <-
+    do.call(getExportedValue("AdequacyModel", "pso"), args = list_args)
   list(par = result$par, value = result$f[length(result$f)])
 }
+
+# Monte Carlo for the pso function of the AdequacyModel package ----------
 
 args <- list(
   func = rastrigin,
@@ -65,7 +43,6 @@ args <- list(
 # A ‘combined multiple-recursive generator’ from L'Ecuyer (1999), each element of which is a feedback
 # multiplicative generator with three integer elements: thus the seed is a (signed) integer vector of
 # length 6. The period is around 2^191.
-
 set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
 # Utilizing all available CPU cores.
@@ -83,21 +60,21 @@ par_1 <- result[names(result) == "par1"]
 par_2 <- result[names(result) == "par2"]
 value <- result[names(result) == "value"]
 
-# Graphic -----------------------------------------------------------------
+# Graphic Monte Carlo AdequacyModel ---------------------------------------
 
 M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 500), 
                    seq(-5.12,  5.12, length.out = 500))
 x  <- M$x ; y <- M$y
 
 rastrigin_plot <- function(x,y){
-  20  + (x^2 - 10 * cos(2*pi*x)) + (y^2 - 10 * cos(2*pi*y))
+  20  + (x ^ 2 - 10 * cos(2 * pi * x)) + (y ^ 2 - 10 * cos(2 * pi * y))
 }
 
-pdf(file="Rastrigin_AdequacyModel.pdf",width=9,height=9, paper="special",
-    family="Bookman",pointsize=14)
-z <- rastrigin_plot(x, y)
-fields::image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]), main = paste0("N = ", length(result)))
-contour(seq(-5.12, 5.12, length.out = nrow(z)),
-         seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
-points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
+pdf(file = "monte_carlo_rastrigin.pdf", width = 9, height = 9, paper = "special",
+    family = "Bookman", pointsize = 14)
+  z <- rastrigin_plot(x, y)
+  fields::image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]), main = paste0("N = ", length(result)))
+  contour(seq(-5.12, 5.12, length.out = nrow(z)),
+          seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
+  points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
 dev.off()
