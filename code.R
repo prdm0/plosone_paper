@@ -20,7 +20,11 @@
 # (vantagens / desvantagens) de AdequacyModel quando comparado com outros pacotes disponíveis (por exemplo, "PSO")
 # e métodos de OSP. contribuição do papel deve ser claramente indicado e apoiado pelos resultados.
 
-library(tidyverse)
+# install.packages("purrr")
+# install.packages("rlang")
+# install.packages("AdequacyModel")
+# install.packages("plot3D")
+# install.packages("fields")
 
 # Rastrigin Function: -----------------------------------------------------
 
@@ -40,10 +44,11 @@ rastrigin <- function(par, x, A = 10L) {
 # Monte Carlo (PSO of the AdequacyModel package) --------------------------
 
 library(parallel) # OpenMP.
-library(AdequacyModel)
 
+
+# One step (Monte Carlo)
 onestep <- function(x, list_args) {
-  result <- do.call("pso", args = list_args)
+  result <- do.call(getExportedValue("AdequacyModel", "pso"), args = list_args)
   list(par = result$par, value = result$f[length(result$f)])
 }
 
@@ -57,21 +62,21 @@ args <- list(
   prop = 0.1
 )
 
-# onestep(list_args = args)
-
 # A ‘combined multiple-recursive generator’ from L'Ecuyer (1999), each element of which is a feedback
 # multiplicative generator with three integer elements: thus the seed is a (signed) integer vector of
 # length 6. The period is around 2^191.
 
 set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
+# Utilizing all available CPU cores.
+# Parallel lapply function: several steps (Monte Carlo).
 result <-
   mclapply(
-    X = 1:100L,
+    X = 1:10L,
     FUN = onestep,
     mc.cores = detectCores(),
     list_args = args
-  ) # Parallel lapply function.
+  ) 
 
 result <- unlist(result)
 par_1 <- result[names(result) == "par1"]
@@ -79,10 +84,6 @@ par_2 <- result[names(result) == "par2"]
 value <- result[names(result) == "value"]
 
 # Graphic -----------------------------------------------------------------
-
-library(plot3D)
-library(fields)
-#library(plotly)
 
 M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 500), 
                    seq(-5.12,  5.12, length.out = 500))
@@ -92,8 +93,11 @@ rastrigin_plot <- function(x,y){
   20  + (x^2 - 10 * cos(2*pi*x)) + (y^2 - 10 * cos(2*pi*y))
 }
 
+pdf(file="Rastrigin_AdequacyModel.pdf",width=9,height=9, paper="special",
+    family="Bookman",pointsize=14)
 z <- rastrigin_plot(x, y)
-image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]))
+fields::image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]), main = paste0("N = ", length(result)))
 contour(seq(-5.12, 5.12, length.out = nrow(z)),
          seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
-points(par_1, par_2, pch = 20, col = rgb(1,1,1))
+points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
+dev.off()
