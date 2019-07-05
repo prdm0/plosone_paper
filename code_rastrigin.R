@@ -47,13 +47,13 @@ set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
 # Utilizing all available CPU cores.
 # Parallel lapply function: several steps (Monte Carlo).
-result <-
+system.time(result <-
   mclapply(
-    X = 1:10L,
+    X = 1:5000L,
     FUN = onestep,
     mc.cores = detectCores(),
     list_args = args
-  ) 
+  )) 
 
 result <- unlist(result)
 par_1 <- result[names(result) == "par1"]
@@ -73,7 +73,7 @@ rastrigin_plot <- function(x,y){
 pdf(file = "monte_carlo_rastrigin.pdf", width = 9, height = 9, paper = "special",
     family = "Bookman", pointsize = 14)
   z <- rastrigin_plot(x, y)
-  fields::image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]), main = paste0("N = ", length(result)))
+  fields::image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]), main = paste0("N = ", length(par_1)))
   contour(seq(-5.12, 5.12, length.out = nrow(z)),
           seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
   points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
