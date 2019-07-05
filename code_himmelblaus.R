@@ -1,8 +1,8 @@
 # install.packages("purrr")
-# install.packages("rlang")
 # install.packages("AdequacyModel")
 # install.packages("plot3D")
 # install.packages("fields")
+# install.packages("parallel")
 
 # Hummelblaus Function: -----------------------------------------------------
 
@@ -41,13 +41,15 @@ set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
 # Utilizing all available CPU cores.
 # Parallel lapply function: several steps (Monte Carlo).
-system.time(result <-
-  mclapply(
-    X = 1:5000L,
-    FUN = onestep,
-    mc.cores = detectCores(),
-    list_args = args
-  )) 
+system.time(
+  result <-
+    parallel::mclapply(
+      X = 1:100L,
+      FUN = onestep,
+      mc.cores = parallel::detectCores(),
+      list_args = args
+    )
+)
 
 result <- unlist(result)
 par_1 <- result[names(result) == "par1"]
