@@ -51,7 +51,7 @@ set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 system.time(
   result <-
     parallel::mclapply(
-      X = 1:5000L,
+      X = 1:10000L,
       FUN = onestep,
       mc.cores = parallel::detectCores(),
       list_args = args
@@ -81,3 +81,5 @@ pdf(file = "monte_carlo_rastrigin.pdf", width = 9, height = 9, paper = "special"
           seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
   points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
 dev.off()
+
+
