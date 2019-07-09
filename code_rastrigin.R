@@ -48,10 +48,10 @@ set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
 
 # Utilizing all available CPU cores.
 # Parallel lapply function: several steps (Monte Carlo).
-system.time(
+time <- system.time(
   result <-
     parallel::mclapply(
-      X = 1:10000L,
+      X = 1:2e4,
       FUN = onestep,
       mc.cores = parallel::detectCores(),
       list_args = args
@@ -82,4 +82,7 @@ pdf(file = "monte_carlo_rastrigin.pdf", width = 9, height = 9, paper = "special"
   points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
 dev.off()
 
+# Saving objects ----------------------------------------------------------
 
+save(file = "simulation_rastrigin.RData",  time, par_1, par_2, value)
+# load(file = "simulation_rastrigin.RData")
