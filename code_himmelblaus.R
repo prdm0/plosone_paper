@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 # install.packages("purrr")
 # install.packages("AdequacyModel")
 # install.packages("plot3D")
