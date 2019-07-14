@@ -1005,45 +1005,98 @@ plot in Figure 1 in \cite{aarset1987}.
 \end{figure}
 
 \section{Simulations}
-Visando estudar a consistência do método PSO implementado na função \texttt{pso()} do pacote \textbf{AdequacyModel} foram realizadas duas simulações de Monte Carlo (MC), considerando as funções Rastrigin e Himmelblau's, respectivamente. As funções são bastante peculiares, sendo ambas multimodais. As simulações podem ser reproduzidas por meio dos códigos em anexo. 
+Visando estudar a consistência do método PSO, implementado na função \texttt{pso()} do pacote \textbf{AdequacyModel}, foram realizadas duas simulações de Monte Carlo (MC), considerando as funções Rastrigin e Himmelblau's, respectivamente, em que todos os resultados poderão ser reproduzidos com o código em anexo. As funções são bastante peculiares, sendo ambas multimodais.
 
 A função Rastringin considerada é definida por $5.12 \leq x_i \leq 5.12, \forall\, x_i \in \bm{x}$, tal que
 
 \begin{equation}
 f(\bm{x}) = An + \sum_{i = 1}^{n} [x_i^2 - A\cos(2\pi x_i) ],
+\label{eq:rastringin}
 \end{equation}
-em que foi considerado $A = 10$. Além disso, considerou-se $n = 2$ para que fosse possível a construção de um gráfico. A superfície da função de Rastringin 
-é apresentada na Figura 
- 
-Visando reduzir bastante o tempo das simulações, o código foi implementado para fazer uso de paralelismo de memória compartilhada (multicore), utilizando o pacote \textbf{parallel} que vem junto com a instalação da linguagem \textsc{R}. Nessa classe de paralelismo, temos que os núcleos estão distribuídos em um mesmo chip. Dessa forma, mesmo que seja executado em um computador com mais de um processador, apena os núcleos do processador que estará executando o ambiente do \textsc{R} será considerado. Isso é suficiente para as simulações em questão e facilitará a checagem dos resultados obtidos nessa seção, uma vez que reduzirá significativamente o tempo da execução de ambas as simulações.
- 
-Como as iterações de MC são matematicamente independentes, a ideia é escrever os laços das simulações de MC por meio do funcional \texttt{mclaplly()} que é semelhante ao \texttt{lapply()} do pacote \textbf{base}. Ao contrário do \texttt{lapply()}, o funcional \texttt{mcapply()} irá disparar, simultaneamente, cada iteração do loop de MC, uma iteração de MC sobre cada um dos cores de um mesmo processador.  Em linguagens de programação interpretadas, como é o caso da linguagem \textsc{R}, substituir a tradicional estrutura de repetição \texttt{for} por um funcional poderá melhorar a eficiência computacional do código, o que é algo comum em linguagens de programação com paradigma funcional.
-As simulações foram realizadas em um computador com processador Intel(R) Core(TM) i7-4710MQ trabalhando entre 2.50 GHz (frequência mínima) à 3.50 GHz (frequência máxima), 6 MB de cache e memória RAM de 32 GB DDR3.
+em que foi considerado $A = 10$. Além disso, considerou-se $n = 2$, para que fosse possível a construção de um gráfico, em três dimensões. Essa função possui o valor mínimo $f(0, 0) = 0$. Por sua vez, a função de  Himmelblau's é definida em $-5 \leq x,y \leq 5$, tal que
+
+\begin{equation}
+f(x, y) = (x^2 + y -11)^2 + (x + y^2 - 7)^2.
+\label{eq:himmelblaus}
+\end{equation}
+Essa função apresenta quatro pontos de mínimos globais, com 0 (zero) sendo o valor mínimo global. Os quatro pontos de mínimos globais são:
+
+$$
+\mathrm{Min} = \left \{
+\begin{array}{rcc}
+f(3.0, 2.0) & = & 0.0 \\
+f(-2.805118, 3.131312) & = & 0.0 \\
+f(-3.779310, -3.283186) & = & 0.0 \\
+f(3.584428, -1.848126) & = & 0.0
+\end{array} 
+\right.
+$$
+
+As peculiaridades das superfícies das funções de Rastringin e Himmelblau's podem ser observados nas Figuras \ref{fig:rastringin} e \ref{fig:himmelblaus}, respectivamente. A Figura \ref{fig:rastringin} exemplifica situações em que temos uma função objetivo com múltiplos mínimos locais e que poderá confundir muitos algoritmos de otimização. Já a Figura \ref{fig:himmelblaus} tenta submeter a função \texttt{pso()} à um cenário de quatro ótimos globais que possuem regiões de descidas menos acentuadas.
+
 
 \begin{figure}[H]
 	\centering
 	\subfigure{
 		\includegraphics[width=6.0cm,height=6.0cm]{surface_rastringin.pdf}
-	%	\caption{Himmelblau's Function.}
+		%	\caption{Himmelblau's Function.}
 		\label{fig:rastringin}
 	}
 	\subfigure{
 		\includegraphics[width=6.0cm,height=6.0cm]{surface_himmelblaus.pdf}
-	%	\caption{Himmelblau's Function.}
+		%	\caption{Himmelblau's Function.}
 		\label{fig:himmelblaus}
 	}
-
+	
 	\caption{Superfícies das funções Rastringin e Hemmelblau's, respectivamente, utilizadas para avaliação da função \texttt{pso()} do pacote \textbf{AdequacyModel}.}
 \end{figure}
 
+
+É importante deixar claro que toda metaheurística tentará, se bem construída e implementada, fornecer uma boa solução para um problema. Dessa forma, é impossível sempre garantir a melhor solução. Sendo assim, ficaremos satisfeitos na obtenção de soluções razoáveis. 
+
+Aqui, tentaremos mostrar que a função \texttt{pso()} poderá ter grande utilidade, por exemplo, na detecção de padrões de vales (cavidades) em superfícies, uma vez que o comportamento das partículas do método \texttt{pso()} implementado no pacote \textbf{AdequacyModel} dificulta a atração de todas as partículas para um mesmo vale, ou seja, para uma mesma solução candidata de mínimo global. Isso, muito provavelmente deve-se à reposição aleatória de partículas que saem da região de busca, dando assim uma maior variabilidade, sem retirar a precisão do método.
+ 
+Visando reduzir bastante o tempo das simulações, o código foi implementado para fazer uso de paralelismo de memória compartilhada (multicore), utilizando o pacote \textbf{parallel}, pacote padrão de qualquer instalação de \textsc{R}. Nessa classe de paralelismo, temos que os núcleos estão distribuídos em um mesmo chip. Dessa forma, mesmo que seja executado em um computador com mais de um processador, apena os núcleos do processador que estará executando o ambiente do \textsc{R} será considerado. Isso é suficiente para as simulações em questão e facilitará a checagem dos resultados obtidos nessa seção, uma vez que reduzirá significativamente o tempo da execução de ambas as simulações quando realizadas em processadores multicores que são comuns nos dias atuais.
+ 
+ 
+Como as iterações de MC são matematicamente independentes, a ideia é escrever os laços das simulações de MC por meio do funcional \texttt{mclaplly()}, do pacote \textbf{parallel}. O funcional \textbf{mclapply()} é bastante semelhante ao \texttt{lapply()} do pacote \textbf{base}, em que o prefixo ``\texttt{mc}" no nome do funcional faz referência ao termo ``multicore" . Ao contrário do \texttt{lapply()}, o funcional \texttt{mcapply()} irá disparar, simultaneamente, cada iteração do loop de MC (thread) sobre cada um dos cores de um mesmo processador.  Em linguagens de programação interpretadas, como é o caso da linguagem \textsc{R}, substituir a tradicional estrutura de repetição \texttt{for} por um funcional poderá melhorar a eficiência computacional do código. O uso de funcionais para repetição de código é algo comum em linguagens de programação com paradigma funcional, que também é um dos paradigmas disponíveis na linguagem \textsc{R}.
+
+
+As simulações de MC foram realizadas em um computador com processador Intel(R) Core(TM) i7-4710MQ trabalhando entre 2.50 GHz (frequência mínima) à 3.50 GHz (frequência máxima), 6 MB de cache, 8 threads e memória RAM de 32 GB DDR3. Para cada uma das funções, foram consideradas 20 mil simulações de MC. Por tratar-se de uma metodologia com passos aleatórios, foi fixado uma semente, \texttt{set.seed(0)}, para que os resultados sejam reproduzíveis. 
+
+A primeira simulação de MC considerou a função de Rastringin (Eq. \ref{eq:rastringin}). Os resultados de cada iteração de MC estão representados como pontos brancos no gráfico de curvas de níveis da superfície, como mostra a Figura \ref{fig:mc_rastringin}. De forma análoga, cada uma das 20 mil simulações de MC que submeteu a função \texttt{pso()} ao processo de otimização da função de Himmelblau's (Eq.\ref{eq:himmelblaus}) estão apresentadas no gráfico das curvas de níveis da função de Himmelblau's, como pode-se obsevar na Figura \ref{fig:mc_himmelblaus}.
+
+O algoritmo PSO apresentado na Seção 2.2 e codificado na função \texttt{pso()} do pacote \textbf{AdequacyModel} apresentou resultados satisfatórios na obtenção de mínimos globais em ambos os casos. Para o caso da função de Rastringin (Eq. \ref{eq:rastringin}), nem sempre a melhor solução foi obtida, porém boas soluções foram alcançadas. A nuvem de pontos, como mostra a Figura \ref{fig:mc_rastringin}, concentrou-se em regiões com bons candidatos à ponto de mínimo global. 
+
+A função \texttt{pso()} também forneceu bons resultados quando submetida à otimização da função de Himmelblau's (Eq.\ref{eq:himmelblaus}). Nesse caso, todas as partículas foram atraídas para os vales que contém os quatro pontos de ótimos globais. Além disso, percebeu-se que a função \texttt{pso()} poderá ser útil na detecção de cavidades de uma superfície  (detecção de vales). Isso muito provavelmente deve-se ao fato da recolocação aleatória de partículas no espaço de busca, o que permite que as partículas possam se dividir em grupos que não necessariamente serão atraídos para a mesma cavidade. Desde que se tenha uma representação matemática da imagem de uma superfície, a função \texttt{pso()} do pacote \textbf{AdequacyModel} poderá ser útil na detecção de cavidades na superfície. Ademais, a função \texttt{pso()} retorna um histórico dos valores de ótimos globais que podem ser úteis na detecção de regiões de cavidade.
+
+
+\begin{figure}[H]
+	\centering
+	\subfigure{
+		\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_rastrigin.pdf}
+		%	\caption{Himmelblau's Function.}
+		\label{fig:mc_rastringin}
+	}
+	\subfigure{
+		\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_himmelblaus.pdf}
+		%	\caption{Himmelblau's Function.}
+		\label{fig:mc_himmelblaus}
+	}
+	
+	\caption{Curvas de níveis das funções Rastringin e Himmelblaus, respectivamente, com pontos ótimos (pontos brancos) obtidos pelas 20 mil  simulações de MC ($N = 20000$).}
+\end{figure}
 
 
 
 
 \section{Conclusions}
 
-\textcolor{red}{In this paper we provided the \textbf{AdequacyModel} package for the \textsc{R} statistical environment with an easy-to-use set of statistical measures to assess the adequacy of lifetime models for a given data set using the PSO as the underlying optimization method. Our contribution to the PSO is to give more control over some aspects of the algorithm, such as the number of particles and iterations and a stop criterion based on the minimum number of iterations and the variance of a given proportion of optimal values. Simulation studies showed that the results obtained by the PSO implemented for the proposed package are not affected by perturbation in initial points. Regarding data analysis, our proposed package allows to easily enter with a data set for which the objective function makes use. Further, the \texttt{goodness.fit()} function provides measures that allow to compare non-nested models models using the classic AIC, CAIC, BIC statistics. Two empirical applications were presented in order to
-illustrate the importance and usefulness of the proposed package.}
+\textcolor{red}{In this paper we provided the \textbf{AdequacyModel} package for the \textsc{R} statistical environment with an easy-to-use set of statistical measures to assess the adequacy of lifetime models for a given data set using the PSO as the underlying optimization method. Our contribution to the PSO is to give more control over some aspects of the algorithm, such as the number of particles and iterations and a stop criterion based on the minimum number of iterations and the variance of a given proportion of optimal values. Simulation studies showed that the results obtained by the PSO implemented for the proposed package are not affected by perturbation in initial points. Regarding data analysis, our proposed package allows to easily enter with a data set for which the objective function makes use. Further, the \texttt{goodness.fit()} function provides measures that allow to compare non-nested models models using the classic AIC, CAIC, BIC statistics. Two empirical applications were presented in order to illustrate the importance and usefulness of the proposed package.}
+
+\textcolor{red}{Em versão futura do pacote, será reescrita a função \texttt{pso()} utilizando a linguagem C/C++. Reescrever a função em C/C++ trará benefícios referente ao desempenho computacional da função, visto que a depender dos valores dos parâmetros \texttt{N}, \texttt{e} e \texttt{prop} da função \texttt{pso()}, poderemos facilmente nos deparar com situações computacionalmente intensivas.}
+
+
 
 \bibliographystyle{plainnat}
 \bibliography{References.bib}
