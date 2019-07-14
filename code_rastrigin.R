@@ -41,7 +41,7 @@ args <- list(
   prop = 0.1
 )
 
-# A ‘combined multiple-recursive generator’ from L'Ecuyer (1999), each element of which is a feedback
+# A combined multiple-recursive generator’ from L'Ecuyer (1999), each element of which is a feedback
 # multiplicative generator with three integer elements: thus the seed is a (signed) integer vector of
 # length 6. The period is around 2^191.
 set.seed(seed = 1L, kind = "L'Ecuyer-CMRG")
