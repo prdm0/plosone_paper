@@ -1,0 +1,93 @@
+\begin{thebibliography}{10}
+
+\bibitem{almalkinadarajah2014}
+Almalki SJ, Nadarajah S.
+\newblock Modifications of the Weibull distribution: a review.
+\newblock Reliability Engineering and System Safety. 2014;124:32--55.
+
+\bibitem{tahircordeiro2016}
+Tahir MH, Cordeiro GM.
+\newblock Compounding of distributions: a survey and new generalized classes.
+\newblock Journal of Statistical Distributions and Applications. 2016; p.
+  3--13.
+
+\bibitem{kennedyeberhart1995}
+Kennedy J, Eberhart RC.
+\newblock Particle swarm optimization.
+\newblock Proceedings of the 1995 IEEE international conference on neural
+  networks (Perth, Australia). 1995; p. 1942--1948.
+
+\bibitem{kennedyetal2001}
+Kennedy J, Eberhart RC, Shi Y.
+\newblock Swarm intelligence.
+\newblock The Morgan Kaufmann: San Francisco, U.S.A.; 2001.
+
+\bibitem{yingetal2010}
+Ying L, Hongli G, Qing W.
+\newblock Adaptive Enhancement with Speckle Reduction for SAR Images Using
+  Mirror-Extended Curvelet and PSO.
+\newblock In: 20th International Conference on Pattern Recognition (ICPR);
+  2010. p. 4520--4523.
+
+\bibitem{khanetal2010}
+Khan A, Bawane NG, Bodkhe S.
+\newblock An Analysis of Particle Swarm Optimization with Data
+  Clustering-Technique for Optimization in Data Mining.
+\newblock International Journal on Computer Science and Engineering.
+  2010;02(07):2223--2226.
+
+\bibitem{linsetal2012}
+Lins ID, Moura MC, Zio E, Droguett EL.
+\newblock A Particle Swarm-optimized Support Vector Machine for Reliability
+  Prediction.
+\newblock Quality and Reliability Engineering International. 2012; p. 141--158.
+
+\bibitem{andras2012}
+Andras P.
+\newblock A Bayesian Interpretation of the Particle Swarm Optimization and Its
+  Kernel Extension.
+\newblock PLoS One. 2012;7(11).
+
+\bibitem{wanghuang2013}
+Wang FK, Huang PR.
+\newblock Implementing particle swarm optimization algorithm to estimate the
+  mixture of two Weibull parameters with.
+\newblock Journal of Statistical Computation and Simulation.
+  2013;84(9):1975--1989.
+
+\bibitem{bratton2008simplified}
+Bratton D, Blackwell T.
+\newblock A simplified recombinant PSO.
+\newblock Journal of Artificial Evolution and Applications. 2008;2008:14.
+
+\bibitem{brattonkennedy2007}
+{Bratton} D, {Kennedy} J.
+\newblock Defining a Standard for Particle Swarm Optimization.
+\newblock In: 2007 IEEE Swarm Intelligence Symposium; 2007. p. 120--127.
+
+\bibitem{chen1995general}
+Chen G, Balakrishnan N.
+\newblock A general purpose approximate goodness-of-fit test.
+\newblock Journal of Quality Technology. 1995;27:154--161.
+
+\bibitem{nicholspadgett2006}
+Nichols MD, Paggett W.
+\newblock A bootstrap control chart for Weibull percentiles.
+\newblock Quality and Reliability Engineering International. 2006;22:141--151.
+
+\bibitem{davisonhinckley1997}
+Davison A, Hinkley D.
+\newblock Bootstrap methods and their applications. vol.~1.
+\newblock Cambridge University Press; 1997.
+
+\bibitem{Dumonceaux73}
+Dumonceaux R, E~Antle C.
+\newblock Discrimination Between the Log-Normal and the Weibull Distribution.
+\newblock Technometrics. 2012;15:923--926.
+
+\bibitem{aarset1987}
+Aarset MV.
+\newblock How to identify bathtub hazard rate.
+\newblock IEEE Transactions Reliability. 1987;36:106--108.
+
+\end{thebibliography}

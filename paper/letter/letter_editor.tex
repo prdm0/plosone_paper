@@ -1,0 +1,69 @@
+\documentclass[a4paper, 10pt]{letter}
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+
+
+
+\usepackage{url, hyperref}
+
+\voffset-1.5in \hoffset-.75in
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{21cm}
+
+\hypersetup{
+    colorlinks=true,
+	linkcolor=blue,
+	urlcolor=blue,
+	citecolor=blue
+}
+
+\begin{document}
+
+\baselineskip 15pt
+\parskip 12pt
+
+\signature{\centering PhD Pedro R. D. Marinho}
+\date{\today}
+
+\begin{letter}{Editor, Plos One}
+
+%\hspace{5cm}July, 2018
+
+Dear Editor of \textbf{Plos One},
+
+
+Please see enclosed the pdf file of our paper
+
+``AdequacyModel: An \texttt{R} Package for Probability Distributions and General Purpose Optimization'',
+
+co-authored by Rodrigo B. Silva (Department of Statistics, Federal University of Para\'{i}ba), Marcelo Bourguignon (Department of Statistics, Federal University of Rio Grande do Norte), Gauss M. Cordeiro (Department of Statistics, Federal University of Pernambuco) and Saralees Nadarajah (School of Mathematics, University of Manchester, Manchester, United Kingdom) and myself, which I would like to submit for possible publication in \textbf{Plos One}. All authors were of vital importance to construction of the article. This paper only will be submitted to the \textbf{Plos One}.
+
+%The article discusses the about the \texttt{AdequacyModel} package that was built by some authors of that paper. The \texttt{AdequacyModel} package already has several citations in the literature and has proved useful for several researchers in the area of probability distributions. In addition, the package is already part of the dependency of two other packages.
+%
+%Although the paper is short, there was a concern to build in a limited number of pages a paper clear in discussions and on use the functions, obeying the rules and suggestions of the \textbf{The R Journal}. In addition, we tried to present clear examples of the use of the functions implemented in the package. Before the examples are presented, special attention was given to each argument of the implemented functions. Therefore, the user will be able to understand the full scope and limitations of the functions available, avoiding any kind of inaccuracies of use and ambiguities.
+%
+%It is also very important to make clear that the implemented functions sought the principle of parsimony of use. They are simple functions to be used and modified for the purposes for which they are being proposed. Many researchers in the area of probability distributions have been using the \texttt{AdequacyModel} package and citing it in their articles. In addition, the package has been tested for a few years and throughout the test time the tool has been cited. We also emphasize that although it may seem that there are other packages that implement the \texttt{AdequacyModel} functions, the functions implemented in the package are different in their methodology. These methodologies and references are presented in a summarized and clear way in the paper. In addition, the functions are designed for very simple and optimized use for researchers in the area of probability distributions.
+
+		The paper deals with the \textbf{AdequacyModel} computational library version 2.0.0 implemented in the \texttt{R} language. The library has been used and referenced in various papers in the area of probability and statistics. This library has been shown to be very useful for researchers in the area of probability / statistics and serves as the basis for the \textbf{Newdistns} library, version 2.1 published in an impact journal in the area of computational statistics, see \url{https://CRAN.R-project.org/package=Newdistns} and \url{https://doi.org/10.18637/jss.v069.i10}. The library \textbf{AdequacyModel} also serves as the basis of the \textbf{Wrapped} library \url{https://CRAN.R-project.org/package=Wrapped} (version 2.0) that is deposited in CRAN package repository. For more details, see \url{ https://doi.org/10.1371/journal.pone.0188512}.
+			
+			In addition, the \textbf{AdequacyModel} library, version 2.0.0 presents an interesting implementation of the Particle Swarm Optimization - PSO method with a minor modification in the original algorithm. This method has proved very useful for maximizing log-likelihood functions with complex search regions. In this classes of probabilistic models that have been proposed in the last years, methods of Newton and quasi-Newton have not been shown efficient to optimize these functions.
+			
+			The introduction of new lifetime models has been played an important role in the treatment of survival data. For some of these new models, however, it is quite difficult to obtain the maximum likelihood estimators due to, among other factors, evidence of flat regions in the search space.  It makes several well-known derivative-based optimization tools unsuitable for obtaining such estimates. To circumvent this problem, we introduce the \textbf{AdequacyModel} package for the \texttt{R} statistical computing environment with two major contributions, namely: a general purpose optimization method based on the Particle Swarm Optimization approach and a set of statistical measures for the assessment of the adequacy of lifetime models for a given dataset. We provide a greater control of the optimization process by introducing a stop criterion which is based on a minimum number of iterations and the variance of a given proportion of optimal values. It is important to emphasize that the proposed \texttt{R} package can be used not only in statistics but in physics and mathematics as demonstrated in several examples throughout the paper. 
+			
+More details and access to the whole evolution of the package can be followed in GitHub in the link \url{https://github.com/PedroRafaelDinizMarinho/AdequacyModel} whose total number of downloads in the RStudio (\url{http://www.rstudio.com/}) repositories can be obtained in an updated way in \url{https://cranlogs.r-pkg.org/badges/grand-total/AdequacyModel}. The availability and versioning of the package in GitHub will allow new collaborators to contribute and add new ideas to the project.
+
+
+Yours Sincerely,\\
+Dr. Pedro R. D. Marinho,\\
+Department of Statistics, \\
+Federal University of Para\'{i}ba, Jo\~{a}o Pessoa, Brazil. \\
+\vspace{0.5cm}\\
+\Large{\bf References}
+
+1 - NADARAJAH, Saralees et al. Newdistns: An R package for new families of distributions. \textbf{Journal of Statistical Software}, v. 69, n. 10, p. 1-32, 2016.
+
+2 - NADARAJAH, Saralees; ZHANG, Yuanyuan. Wrapped: An R package for circular data. \textbf{Plos One}, v. 12, n. 12, p. e0188512, 2017.
+\end{letter}
+
+\end{document}
