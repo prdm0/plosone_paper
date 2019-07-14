@@ -73,14 +73,7 @@ rastrigin_plot <- function(x,y){
   20  + (x ^ 2 - 10 * cos(2 * pi * x)) + (y ^ 2 - 10 * cos(2 * pi * y))
 }
 
-pdf(file = "monte_carlo_rastrigin.pdf", width = 9, height = 9, paper = "special",
-    family = "Bookman", pointsize = 14)
-  z <- rastrigin_plot(x, y)
-  fields::image.plot(x, y, z, xlab = bquote(x[1]), ylab = bquote(x[2]), main = paste0("N = ", length(par_1)))
-  contour(seq(-5.12, 5.12, length.out = nrow(z)),
-          seq(-5.12, 5.12, length.out = nrow(z)), z, add = TRUE)
-  points(par_1, par_2, pch = 20, col = rgb(1, 1, 1))
-dev.off()
+
 
 # Saving objects ----------------------------------------------------------
 
