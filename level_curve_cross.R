@@ -6,8 +6,8 @@ cross <- function(x, y){
 
 pdf(file = "curve_cross.pdf", width = 9, height = 9, paper = "special",
     family = "Bookman", pointsize = 14)
-M  <- plot3D::mesh(seq(-20,  20, length.out = 550),
-                   seq(-20,  20, length.out = 550))
+M  <- plot3D::mesh(seq(-20,  20, length.out = 150),
+                   seq(-20,  20, length.out = 150))
 x  <- M$x
 y <- M$y
 z <- cross(x, y)

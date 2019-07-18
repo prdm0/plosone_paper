@@ -5,8 +5,8 @@ easom <- function(x, y){
 
 pdf(file = "curve_easom.pdf", width = 9, height = 9, paper = "special",
     family = "Bookman", pointsize = 14)
-M  <- plot3D::mesh(seq(0,  5, length.out = 550),
-                   seq(0,  5, length.out = 550))
+M  <- plot3D::mesh(seq(0,  5, length.out = 150),
+                   seq(0,  5, length.out = 150))
 x  <- M$x
 y <- M$y
 z <- easom(x, y)

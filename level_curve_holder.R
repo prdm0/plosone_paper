@@ -4,8 +4,8 @@ holder <- function(x, y){
 
 pdf(file = "curve_holder.pdf", width = 9, height = 9, paper = "special",
     family = "Bookman", pointsize = 14)
-M  <- plot3D::mesh(seq(-10,  10, length.out = 550),
-                   seq(-10,  10, length.out = 550))
+M  <- plot3D::mesh(seq(-10,  10, length.out = 150),
+                   seq(-10,  10, length.out = 150))
 x  <- M$x
 y <- M$y
 z <- holder(x, y)
@@ -18,18 +18,18 @@ points(
   y = -9.627049,
   col = rgb(1, 1, 1),
   pch = 20,
-  cex = 2.2
+  cex = 2.7
 )
 dev.off()
 
 ###########################
 
-holder <- function(x, par){
-  x1 <- par[1]
-  x2 <- par[2]
-  -abs(sin(x1) * cos(x2) * exp(abs(1 - sqrt(x1 ^ 2 + x2 ^ 2) / pi)))
-}
-set.seed(9)
-result_pso_holder <- AdequacyModel::pso(func = holder, S = 500, lim_inf = c(-10, -10),
-                         lim_sup = c(10, 10), e = 0.0001)
+# holder <- function(x, par){
+#   x1 <- par[1]
+#   x2 <- par[2]
+#   -abs(sin(x1) * cos(x2) * exp(abs(1 - sqrt(x1 ^ 2 + x2 ^ 2) / pi)))
+# }
+# set.seed(9)
+# result_pso_holder <- AdequacyModel::pso(func = holder, S = 500, lim_inf = c(-10, -10),
+#                          lim_sup = c(10, 10), e = 0.0001)
 

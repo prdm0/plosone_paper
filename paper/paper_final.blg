@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Arch Linux)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: paper_final.aux
+The style file: plos2015.bst
+Illegal, another \bibstyle command---line 109 of file paper_final.aux
+ : \bibstyle
+ :          {plainnat}
+I'm skipping whatever remains of this command
+Database file #1: References.bib
+Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=8) to 20 items from 10.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+You've used 16 entries,
+            3058 wiz_defined-function locations,
+            727 strings with 6857 characters,
+and the built_in function-call counts, 21762 in all, are:
+= -- 2918
+> -- 140
+< -- 6
++ -- 115
+- -- 35
+* -- 1638
+:= -- 2339
+add.period$ -- 60
+call.type$ -- 16
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 16
+duplicate$ -- 2322
+empty$ -- 1990
+format.name$ -- 49
+if$ -- 5197
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 123
+newline$ -- 83
+num.names$ -- 16
+pop$ -- 233
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 260
+stack$ -- 0
+substring$ -- 3522
+swap$ -- 337
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 125
+width$ -- 18
+write$ -- 177
+(There was 1 error message)

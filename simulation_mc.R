@@ -92,8 +92,8 @@ simulation_mc <- function(mc = 20e3L, FUN = "rastrigin",
       20  + (x ^ 2 - 10 * cos(2 * pi * x)) +
         (y ^ 2 - 10 * cos(2 * pi * y))
     }
-    M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 500), 
-                       seq(-5.12,  5.12, length.out = 500))
+    M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 150), 
+                       seq(-5.12,  5.12, length.out = 150))
     x  <- M$x ; y <- M$y
     
     pdf(file = "monte_carlo_rastrigin.pdf", width = 9, 
@@ -112,8 +112,8 @@ simulation_mc <- function(mc = 20e3L, FUN = "rastrigin",
     himmelblaus_plot <- function(x, y){
       (x ^ 2 + y - 11) ^ 2 + (x + y ^ 2 - 7) ^ 2
     }
-    M  <- plot3D::mesh(seq(-5,  5, length.out = 500), 
-                       seq(-5,  5, length.out = 500))
+    M  <- plot3D::mesh(seq(-5,  5, length.out = 150), 
+                       seq(-5,  5, length.out = 150))
     x  <- M$x ; y <- M$y
     
     pdf(file = "monte_carlo_himmelblaus.pdf", width = 9, 
@@ -131,7 +131,6 @@ simulation_mc <- function(mc = 20e3L, FUN = "rastrigin",
   }
   list(x = par_1, y = par_2, value = value, time = time)
 }
-
 
 # Saving Results ----------------------------------------------------------
 result_rastrigin <- simulation_mc(mc = 2e4, FUN = "rastrigin")

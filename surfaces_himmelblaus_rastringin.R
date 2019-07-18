@@ -10,8 +10,8 @@ himmelblaus_plot <- function(x, y){
 
 pdf(file = "surface_rastringin.pdf", width = 9, height = 9, paper = "special",
     family = "Bookman", pointsize = 14)
-  M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 250),
-                    seq(-5.12,  5.12, length.out = 250))
+  M  <- plot3D::mesh(seq(-5.12,  5.12, length.out = 150),
+                    seq(-5.12,  5.12, length.out = 150))
   x <- M$x
   y <- M$y
   z <- rastrigin_plot(x, y)
@@ -20,8 +20,8 @@ dev.off()
 
 pdf(file = "surface_himmelblaus.pdf", width = 9, height = 9, paper = "special",
     family = "Bookman", pointsize = 14)
-  M  <- plot3D::mesh(seq(-5,  5, length.out = 250),
-                     seq(-5,  5, length.out = 250))
+  M  <- plot3D::mesh(seq(-5,  5, length.out = 150),
+                     seq(-5,  5, length.out = 150))
   x <- M$x
   y <- M$y
   z <- himmelblaus_plot(x, y)

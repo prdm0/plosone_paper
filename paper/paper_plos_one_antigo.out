@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Conceptual design of the framework}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Swarm intelligence}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Proposed PSO algorithm}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{The AdequacyModel package}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Multi-parameter global optimization}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Examples}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Trigonometric function}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Easom function}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Cross-in-tray function}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.4}{H\366lder function}{subsection.3.2}% 11
+\BOOKMARK [1][-]{section.4}{Fitting distributions with the AdequacyModel}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Carbon fiber data}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Flood level data}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{TTT plot}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Simulations}{}% 16
+\BOOKMARK [1][-]{section.6}{Conclusions}{}% 17
+\BOOKMARK [1][-]{appendix.A}{Monte Carlo simulation code}{}% 18
