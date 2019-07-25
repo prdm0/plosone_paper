@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.18)  18 JUL 2019 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.7.18)  18 JUL 2019 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1202,6 +1202,13 @@ level curves, as shown in Fig-ure [][]11(a)[][]. Sim-i-larly, each
  []
 
 
+Overfull \hbox (0.14954pt too wide) in paragraph at lines 1246--1247
+[][]\OT1/cmr/m/n/10 (+15) The PSO al-go-rithm given in Sec-tion 2.2 and en-code
+d in the \OT1/cmtt/m/n/10 pso() \OT1/cmr/m/n/10 (+15) func-tion of the \OT1/cmr
+/bx/n/10 Ad-e-qua-cy-Model \OT1/cmr/m/n/10 (+15) pack- 
+ []
+
+
 Overfull \hbox (0.14868pt too wide) in paragraph at lines 1248--1249
 \OT1/cmtt/m/n/10 pso() \OT1/cmr/m/n/10 (+18) function of the \OT1/cmr/bx/n/10 A
 dequacyModel \OT1/cmr/m/n/10 (+18) package may be useful in detecting cavities 
@@ -1263,7 +1270,7 @@ ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/
 public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super
 /sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><
 /usr/share/texmf-dist/fonts/type1/public/wasy2-ps/wasy7.pfb>
-Output written on paper_final.pdf (27 pages, 6632153 bytes).
+Output written on paper_final.pdf (27 pages, 6632162 bytes).
 PDF statistics:
  572 PDF objects out of 1000 (max. 8388607)
  484 compressed objects within 5 object streams
