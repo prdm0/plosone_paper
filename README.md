@@ -1,3 +1,3 @@
 # Artigo submetido à revista Plos One (Paper e Códigos)
 
-O conteúdo será aberto após a aceitação do paper.
+Artigo aceito em 08/08/2019. O conteúdo será aberto após todo processo de aceitação terminar.
