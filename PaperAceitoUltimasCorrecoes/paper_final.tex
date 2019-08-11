@@ -415,7 +415,7 @@ function.
 Initially, we consider the case of a global search in a univariate function to estimate a one-dimensional vector.
 Consider the objective function $f(\theta) = 6 + \theta^2 \sin(14\theta)$.
 This function has  local minima at $\theta= 2.3605$ which globally minimizes $f(\theta)$ with $f(2.3605) = -11.5618$.
-Figure~\ref{fig:f} plots $f(\theta)$ over $\theta \in [-2.5, 2.5]$.
+Fig~\ref{fig:f} plots $f(\theta)$ over $\theta \in [-2.5, 2.5]$.
 The blue square symbol indicates the global minimum obtained by the
 BFGS, SANN and Nelder-Mead methods.
 The red bullet represents the global minimum obtained by the PSO method.
@@ -448,7 +448,7 @@ R> result_nelder_f <- optim(par = 0, fn = f, lower = -2.5, upper = 2.5,
 \end{figure}
 
 Note that the global minimum estimates obtained by the BFGS, SANN and Nelder-Mead methods through the \texttt{optim()} function (for more details, execute \texttt{?optim}) are heavily influenced by initial values.
-It is quite clear from Figure~\ref{fig:f} that there is a $\varepsilon >0$
+It is quite clear from Fig~\ref{fig:f} that there is a $\varepsilon >0$
 such that $f$ has derivative close to 0 around $(-\varepsilon, \varepsilon)$.
 On the other hand, the \texttt{pso} function from the
 \textbf{AdequacyModel} script provides the true global minimum, which obviously coincides with the analytic solution.
@@ -465,7 +465,7 @@ There is no need for initial information for optimizations through the \texttt{p
 \subsubsection{Easom function}
 
 We now consider the Easom function $f(x,y) = -\cos(x)\cos(y)\exp\{-[(x-\pi)^2 + (y-\pi)^2]\}$ for $-10\leq x,\,y \leq 10$.
-Figures \ref{fig:easom1} and \ref{fig:easom2} display different angles of the function.
+Figs \ref{fig:easom1} and \ref{fig:easom2} display different angles of the function.
 The Easom function is
 minimized at $x=y=\pi$ with $f(\pi,\pi)=-1$.
 The \texttt{pso()} function to minimize $f(x,y)$ is
@@ -483,7 +483,7 @@ R> results_pso <- pso(func = easom, S = 500, lim_inf = c(-10, -10),
 
 Before execution of the \texttt{pso} function, we set \texttt{set.seed(9)}, for which the same results can be replicated.
 The estimated minimum points of the \texttt{pso} function are $\widehat{x} = 3.139752$ and $\widehat{y} = 3.141564$, which are very close to $x=y=\pi$.
-The convergence of the algorithm for  values very close to the global optimum can be noted from the level curves  in Figure \ref{curves_easom}.
+The convergence of the algorithm for  values very close to the global optimum can be noted from the level curves  in Fig \ref{curves_easom}.
 
 \begin{figure}[H]
 \centering
@@ -580,7 +580,7 @@ The white point is the minimum value obtained by the \texttt{pso()} function.}
 Now, we use the \texttt{pso} function to minimize the Cross-in-tray function.
 This is a difficult function to be minimized for different reasons from
 those presented in the previous examples.
-The Cross-in-tray function has many local minima as  can be seen in Figures \ref{fig:cross2}
+The Cross-in-tray function has many local minima as  can be seen in Figs \ref{fig:cross2}
 and \ref{fig:cross1}.
 This fact can certainly harm the convergence of various algorithms that search for a global optimum.
 The Cross-in-tray function is
@@ -620,7 +620,7 @@ Any estimate of the minimum point $(\widehat{x},\,\widehat{y})$ with a minimum v
 
 By means of the \texttt{optim} function, we note the convergence of the BFGS, SANN and Nelder-Mead methods with initial values at $x=0$ and $y=0$.
 The estimated values of $x$ and $y$ are equal to $\widehat{x}=\widehat{y}=0$ and $f(\widehat{x},\widehat{y})=-0.0001$ for the three approaches.
-The minimization of the Cross-in-tray function adopting the PSO algorithm achieves a satisfactory outcome as shown in Figure \ref{curves_cross}.
+The minimization of the Cross-in-tray function adopting the PSO algorithm achieves a satisfactory outcome as shown in Fig \ref{curves_cross}.
 The estimated minimum point is $(1.3490,1.3490)$ yielding the minimum value $f(1.3490,1.3490) = -2.0626$.
 The results can be obtained with the script below:
 \begin{verbatim}
@@ -686,7 +686,7 @@ f(-8.05502,\,-9.66459) & = & -19.2085
 \right.
 $$
 and $-10 \leq x,\, y \leq 10$.
-Figure \ref{fig:holder}  plots the H\"{o}lder function defined above.
+Fig \ref{fig:holder}  plots the H\"{o}lder function defined above.
 
 \begin{figure}[H]
 	\centering
@@ -707,7 +707,7 @@ However, in all cases, there is convergence following the methods implemented in
 For initial values at $(0, 0)$, the convergence leads to $(0, 0)$, i.e., the three methods estimate the minimum point as $\widehat{x} = 0$ and $\widehat{y} = 0$.
 For the SANN method, we set \texttt{set.seed(9)}.
 However, the problem is easily circumvented by increasing the number of iterations.
-Figure \ref{curves_holder}  plots the levels of the H\"{o}lder function versus the point of convergence of the PSO algorithm.
+Fig \ref{curves_holder}  plots the levels of the H\"{o}lder function versus the point of convergence of the PSO algorithm.
 We used the following script:
 \begin{verbatim}
 R> holder <- function(x, par){
@@ -982,7 +982,7 @@ to \texttt{method} that minimizes the log-likelihood function multiplied by -1, 
 can be obtained with \texttt{help(optim)} if the argument \texttt{method} of the \texttt{goodness.fit()} function receives
 the strings \texttt{"BFGS"}, \texttt{"Nelder-Mead"}, \texttt{"SANN"} or \texttt{"CG"} (or the initial letters \texttt{"B"}, \texttt{"N"}, \texttt{"S"} or \texttt{"C"}).
 For the PSO method  (default \texttt{method = "PSO"}), the convergence criterion is displayed as discussed in Section~\ref{pso}, which is normally  satisfied.
-({\it iii}) The script for Figure \ref{plot_ajustament} is:
+({\it iii}) The script for Fig \ref{plot_ajustament} is:
 
 \begin{verbatim}
 R> pdf(file = "plot_adjustment.pdf", width = 9, height = 9, paper = "special",
@@ -1145,9 +1145,9 @@ R> library(AdequacyModel)
 R> data(carbone)
 R> TTT(carbone, col = "red", lwd = 2.5, grid = TRUE, lty = 2)
 \end{verbatim}
-The TTT plot for the carbone data \cite{nicholspadgett2006} is displayed in Figure \ref{tttplot}, which reveals an increasing hrf.
+The TTT plot for the carbone data \cite{nicholspadgett2006} is displayed in Fig \ref{tttplot}, which reveals an increasing hrf.
 This plot reveals that distributions with increasing hrf could be good candidates for modeling the carbone data, see the theoretical
-plot in Figure 1 in \cite{aarset1987}.
+plot in Fig 1 in \cite{aarset1987}.
 
 \begin{figure}[H]
 \centering
@@ -1184,7 +1184,7 @@ f(3.584428, -1.848126) & = & 0.0
 \right.
 $$
 
-The peculiarities of the surfaces of Rastringin and Himmelblau's functions can be seen in Figures \ref{fig:rastringin} and \ref{fig:himmelblaus}, respectively. The figure \ref{fig:rastringin} exemplifies situations in which we have an objective function with multiple local minimums and this may cause confusion to many optimization algorithms, specially those based on derivatives. In the second scenario, the \texttt{pso()} function was submitted to a function with four global optimums, in which we have a region of decrease less accentuated, as can be seen in Figure \ref{fig:himmelblaus}.
+The peculiarities of the surfaces of Rastringin and Himmelblau's functions can be seen in Figs \ref{fig:rastringin} and \ref{fig:himmelblaus}, respectively. The Fig \ref{fig:rastringin} exemplifies situations in which we have an objective function with multiple local minimums and this may cause confusion to many optimization algorithms, specially those based on derivatives. In the second scenario, the \texttt{pso()} function was submitted to a function with four global optimums, in which we have a region of decrease less accentuated, as can be seen in Fig \ref{fig:himmelblaus}.
 \begin{figure}[H]
 	\centering
 	\subfigure{
@@ -1227,9 +1227,9 @@ To further facilitate the reproduction of the simulations for the considered obj
 
 With the code attached (see \ref{code:simulation_mc}), the simulations of MC for the Rastrigin (Eq. \ref{eq:rastringin}) and function of Himmelblau's (Eq. \ref{eq:himmelblaus}) simulations can be reproduced making \texttt{simulation\_mc(mc = 2e4, FUN = "rastrigin")} and \texttt{simulation\_mc(mc = 2e4, FUN = "himmelblaus")}, respectively. The MC simulation that subjected the \texttt{pso()} function to optimize the Rastringin function took approximately 3.77 hours with the hardwares considered. A much shorter time was required to perform MC simulations for the Himmelblau's function (Eq. \ref{eq:himmelblaus}) because of its simplicity compared to the Rastrigin function (Eq. \ref{eq:rastringin}), taking about 4.58 minutes.
 
-The first MC simulation considered the Rastringin function (Eq. \ref{eq:rastringin}). The results of each iteration of MC are represented as white dots in the graph of surface level curves, as shown in Figure \ref{fig:mc_rastringin}. Similarly, each of the 20,000 MC simulations that submitted the \texttt{pso()} function to the optimization process of the Himmelblau's function (Eq. \ref{eq:himmelblaus}) are shown in the graph of the level curves of the function of Himmelblau's, as can be seen in Figure \ref{fig:mc_himmelblaus}.
+The first MC simulation considered the Rastringin function (Eq. \ref{eq:rastringin}). The results of each iteration of MC are represented as white dots in the graph of surface level curves, as shown in Fig \ref{fig:mc_rastringin}. Similarly, each of the 20,000 MC simulations that submitted the \texttt{pso()} function to the optimization process of the Himmelblau's function (Eq. \ref{eq:himmelblaus}) are shown in the graph of the level curves of the function of Himmelblau's, as can be seen in Fig \ref{fig:mc_himmelblaus}.
 
-The PSO algorithm given in Section 2.2 and encoded in the \texttt{pso()} function of the \textbf{AdequacyModel} package presented satisfactory results in obtaining global minimums in both cases. For the case of the Rastringin function (Eq. \ref{eq:rastringin}), not always the best solution is obtained, but good solutions are reached. The dot cloud, as shown in Figure \ref{fig:mc_rastringin}, has been concentrated in regions with good candidates to the point of global minimum.
+The PSO algorithm given in Section 2.2 and encoded in the \texttt{pso()} function of the \textbf{AdequacyModel} package presented satisfactory results in obtaining global minimums in both cases. For the case of the Rastringin function (Eq. \ref{eq:rastringin}), not always the best solution is obtained, but good solutions are reached. The dot cloud, as shown in Fig \ref{fig:mc_rastringin}, has been concentrated in regions with good candidates to the point of global minimum.
 
 The function \texttt{pso()} also provides good results when submitted to the optimization of the Himmelblau's function (Eq. \ref{eq:himmelblaus}). In this case, particles are attracted to the valleys containing the four global optimum points. In addition, it has been realized that the \texttt{pso()} function may be useful in detecting cavities on a surface (valleys detection). This is most likely due to the fact that particles are randomly replaced in the search space, which allows the particles to divide into groups that will not necessarily be attracted to the same cavity. In the situation where there is a mathematical representation of the image of a surface, the \texttt{pso()} function of the \textbf{AdequacyModel} package may be useful in detecting cavities (valleys). In addition, the \texttt{pso()} function returns a history of global optimal values that may be useful in detecting these regions.
 
@@ -1264,14 +1264,43 @@ Two empirical applications were presented in order to illustrate the importance 
 
 In the future version of the package, the function \texttt{pso()} will be rewritten using the \textsc{C}/\textsc{C++} language. Rewriting the function in \textsc{C}/\textsc{C++} will bring benefits regarding the computational performance of the function, since depending on the values of the \texttt{N}, \texttt{e} and \texttt{prop} parameters of the \texttt{pso()} function, we can easily encounter computationally intensive situations.
 
-
-
 \bibliographystyle{plainnat}
-\bibliography{References.bib}
 
+\begin{thebibliography}{99}
+\bibitem{almalkinadarajah2014} Almalki SJ, Nadarajah S. Modifications of the Weibull distribution: a review. Reliability Engineering and System Safety. 2014;124:32--55.
+
+\bibitem{tahircordeiro2016} Tahir MH, Cordeiro GM. Compounding of distributions: a survey and new generalized classes. Journal of Statistical Distributions and Applications. 2016; p. 3--13.
+
+\bibitem{kennedyeberhart1995} Kennedy J, Eberhart RC. Particle swarm optimization. Proceedings of the 1995 IEEE international conference on neural networks (Perth, Australia). 1995; p. 1942--1948.
+
+\bibitem{kennedyetal2001} Kennedy J, Eberhart RC, Shi Y. Swarm intelligence. The Morgan Kaufmann: San Francisco, U.S.A.; 2001.
+
+\bibitem{yingetal2010} Ying L, Hongli G, Qing W. Adaptive Enhancement with Speckle Reduction for SAR Images Using Mirror-Extended Curvelet and PSO. In: 20th International Conference on Pattern Recognition (ICPR); 2010. p. 4520--4523.
+
+\bibitem{khanetal2010} Khan A, Bawane NG, Bodkhe S. An Analysis of Particle Swarm Optimization with Data Clustering-Technique for Optimization in Data Mining. International Journal on Computer Science and Engineering. 2010;02(07):2223--2226.
+
+\bibitem{linsetal2012} Lins ID, Moura MC, Zio E, Droguett EL. A Particle Swarm-optimized Support Vector Machine for Reliability Prediction. Quality and Reliability Engineering International. 2012; p. 141--158.
+
+\bibitem{andras2012} Andras P. A Bayesian Interpretation of the Particle Swarm Optimization and Its Kernel Extension. PLoS One. 2012;7(11).
+
+\bibitem{wanghuang2013} Wang FK, Huang PR. Implementing particle swarm optimization algorithm to estimate the mixture of two Weibull parameters with. Journal of Statistical Computation and Simulation. 2013;84(9):1975--1989.
+
+\bibitem{bratton2008simplified} Bratton D, Blackwell T. A simplified recombinant PSO. Journal of Artificial Evolution and Applications. 2008;2008:14.
+
+\bibitem{brattonkennedy2007} Bratton D, Kennedy J. Defining a Standard for Particle Swarm Optimization. In: 2007 IEEE Swarm Intelligence Symposium; 2007. p. 120--127.
+
+\bibitem{chen1995general} Chen G, Balakrishnan N. A general purpose approximate goodness-of-fit test. Journal of Quality Technology. 1995;27:154--161.
+
+\bibitem{nicholspadgett2006} Nichols MD, Paggett W. A bootstrap control chart for Weibull percentiles. Quality and Reliability Engineering International. 2006;22:141--151.
+
+\bibitem{davisonhinckley1997} Davison A, Hinkley D. Bootstrap methods and their applications. vol. 1. Cambridge University Press; 1997.
+
+\bibitem{Dumonceaux73} Dumonceaux R, E Antle C. Discrimination Between the Log-Normal and the Weibull Distribution. Technometrics. 2012;15:923--926.
+
+\bibitem{aarset1987} Aarset MV. How to identify bathtub hazard rate. IEEE Transactions Reliability. 1987;36:106--108.
+\end{thebibliography}
 
 \appendix
-
 
 \section{Monte Carlo simulation code}
 \label{code:simulation_mc}
@@ -1420,8 +1449,5 @@ save(file = "simulation_rastrigin.RData",  result_rastrigin)
 result_himmelblaus <- simulation_mc(mc = 2e4, FUN = "himmelblaus")
 save(file = "simulation_himmelblaus.RData", result_himmelblaus)
 \end{verbatim}
-
-
-
 
 \end{document} 
