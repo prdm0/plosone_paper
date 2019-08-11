@@ -119,21 +119,7 @@ Saralees Nadarajah\textsuperscript{4},
 
 \section*{Abstract}
 
-Several lifetime distributions have  played an important role to fit survival data.
-However, for some of these models,  the computation of maximum likelihood estimators is quite difficult due to presence of flat regions in the search space, among other factors.
-Several well-known derivative-based optimization tools are unsuitable for obtaining such estimates.
-To circumvent this problem, we introduce the \textbf{AdequacyModel} computational library version 2.0.0 for the \textsc{R} statistical environment
-with two major contributions: a general optimization technique based on the Particle Swarm Optimization (PSO) method (with a minor modification of the original algorithm)
-and a set of statistical measures for assessment of the adequacy of the fitted model.
-This library is very useful for researchers in pro\-bability and statistics and has been cited in various papers in these areas.
-It serves as the basis for the \textbf{Newdistns} library (version 2.1) published in an impact journal in the area of computational statistics,
-see \url{https://CRAN.R-project.org/package=Newdistns}.
-It is also the basis of the \textbf{Wrapped} library (version 2.0), see \url{https://CRAN.R-project.org/package=Wrapped}.
-A third package  making use of the \textbf{AdequacyModel} library can be found in \url{https://CRAN.R-project.org/package=sglg}.
-In addition, the proposed library has proved to be very useful for maximizing log-likelihood functions with complex search regions.
-The library provides a greater control of the optimization process by introducing a stop criterion  based on a minimum number of iterations and the variance of a given proportion of optimal values.
-We emphasize that the new library can be used not only in statistics but in physics and mathematics as proved in several examples throughout the paper.
-
+Several lifetime distributions have  played an important role to fit survival data. However, for some of these models,  the computation of maximum likelihood estimators is quite difficult due to presence of flat regions in the search space, among other factors. Several well-known derivative-based optimization tools are unsuitable for obtaining such estimates. To circumvent this problem, we introduce the \textbf{AdequacyModel} computational library version 2.0.0 for the \textsc{R} statistical environment with two major contributions: a general optimization technique based on the Particle Swarm Optimization (PSO) method (with a minor modification of the original algorithm) and a set of statistical measures for assessment of the adequacy of the fitted model. This library is very useful for researchers in pro\-bability and statistics and has been cited in various papers in these areas. It serves as the basis for the \textbf{Newdistns} library (version 2.1) published in an impact journal in the area of computational statistics, see \url{https://CRAN.R-project.org/package=Newdistns}. It is also the basis of the \textbf{Wrapped} library (version 2.0), see \url{https://CRAN.R-project.org/package=Wrapped}. A third package  making use of the \textbf{AdequacyModel} library can be found in \url{https://CRAN.R-project.org/package=sglg}. In addition, the proposed library has proved to be very useful for maximizing log-likelihood functions with complex search regions. The library provides a greater control of the optimization process by introducing a stop criterion  based on a minimum number of iterations and the variance of a given proportion of optimal values. We emphasize that the new library can be used not only in statistics but in physics and mathematics as proved in several examples throughout the paper.
 \linenumbers
 
 \section{Introduction}
@@ -502,11 +488,11 @@ The convergence of the algorithm for  values very close to the global optimum ca
 \begin{figure}[H]
 \centering
 \subfigure{
-	\includegraphics[width=6.0cm,height=6.0cm]{easom1.pdf}
+	%\includegraphics[width=6.0cm,height=6.0cm]{easom1.pdf}
 	\label{fig:easom1}
 }
 \subfigure{
-	\includegraphics[width=6.0cm,height=6.0cm]{easom2.pdf}
+	%\includegraphics[width=6.0cm,height=6.0cm]{easom2.pdf}
 	\label{fig:easom2}
 }
 \caption{Easom function from two different angles.}
@@ -583,7 +569,7 @@ The estimated coordinates are $\widehat{x}=1.110688$ and $\widehat{y}=13.934928$
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=7cm,height=7cm]{curve_easom}
+%\includegraphics[width=7cm,height=7cm]{curve_easom}
 \caption{Levels of the Easom function.
 The white point is the minimum value obtained by the \texttt{pso()} function.}
 \label{curves_easom}
@@ -620,11 +606,11 @@ Any estimate of the minimum point $(\widehat{x},\,\widehat{y})$ with a minimum v
 \begin{figure}[H]
 \centering
 \subfigure{
-	\includegraphics[width=6.0cm,height=6.0cm]{cross1.pdf}
+	%\includegraphics[width=6.0cm,height=6.0cm]{cross1.pdf}
 	\label{fig:cross2}
 }
 \subfigure{
-	\includegraphics[width=6.0cm,height=6.0cm]{cross2.pdf}
+	%\includegraphics[width=6.0cm,height=6.0cm]{cross2.pdf}
 	\label{fig:cross1}
 }
 \caption{Cross-in-tray function from two different angles.}
@@ -651,7 +637,7 @@ R> result_pso_cross <- pso(func = cross, S = 500, lim_inf = c(-10, -10),
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=7cm,height=7cm]{curve_cross}
+%\includegraphics[width=7cm,height=7cm]{curve_cross}
 \caption{Levels of the Cross-in-tray function.
 The white point is the minimum value obtained by the \texttt{pso()} function.}
 \label{curves_cross}
@@ -705,11 +691,11 @@ Figure \ref{fig:holder}  plots the H\"{o}lder function defined above.
 \begin{figure}[H]
 	\centering
 	\subfigure{
-		\includegraphics[width=6.0cm,height=6.0cm]{holder1.pdf}
+		%\includegraphics[width=6.0cm,height=6.0cm]{holder1.pdf}
 		\label{fig:holder2}
 	}
 	\subfigure{
-		\includegraphics[width=6.0cm,height=6.0cm]{holder2.pdf}
+		%\includegraphics[width=6.0cm,height=6.0cm]{holder2.pdf}
 		\label{fig:holder1}
 	}
 	\caption{H\"{o}lder function at two different angles.}
@@ -738,7 +724,7 @@ R> result_pso_holder <- pso(func = holder, S = 500,
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=7cm,height=7cm]{curve_holder}
+%\includegraphics[width=7cm,height=7cm]{curve_holder}
 \caption{Levels of the H\"{o}lder function.
 The white point is the minimum value obtained by the \texttt{pso()} function.}
 \label{curves_holder}
@@ -979,7 +965,7 @@ $Convergence
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm,height=8cm]{histogram_carbon}
+%\includegraphics[width=8cm,height=8cm]{histogram_carbon}
 \caption{Fitted Exp-Weibull pdf to stress data (until fracture) of carbon fibers in Gba.}
 \label{plot_ajustament}
 \end{figure}
@@ -1165,7 +1151,7 @@ plot in Figure 1 in \cite{aarset1987}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm,height=8cm]{tttplot}
+%\includegraphics[width=8cm,height=8cm]{tttplot}
 \caption{TTT-plot for carbon data.}
 \label{tttplot}
 \end{figure}
@@ -1202,12 +1188,12 @@ The peculiarities of the surfaces of Rastringin and Himmelblau's functions can b
 \begin{figure}[H]
 	\centering
 	\subfigure{
-		\includegraphics[width=6.0cm,height=6.0cm]{surface_rastringin.pdf}
+		%\includegraphics[width=6.0cm,height=6.0cm]{surface_rastringin.pdf}
 		%	\caption{Himmelblau's Function.}
 		\label{fig:rastringin}
 	}
 	\subfigure{
-		\includegraphics[width=6.0cm,height=6.0cm]{surface_himmelblaus.pdf}
+		%\includegraphics[width=6.0cm,height=6.0cm]{surface_himmelblaus.pdf}
 		%	\caption{Himmelblau's Function.}
 		\label{fig:himmelblaus}
 	}
@@ -1250,14 +1236,14 @@ The function \texttt{pso()} also provides good results when submitted to the opt
 
 \begin{figure}[H]
 	\centering
-	\subfigure[]{
-		\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_rastrigin.pdf}
-		\label{fig:mc_rastringin}
-	}
-	\subfigure[]{
-		\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_himmelblaus.pdf}
-		\label{fig:mc_himmelblaus}
-	}
+%	\subfigure[]{
+%		%\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_rastrigin.pdf}
+%		\label{fig:mc_rastringin}
+%	}
+%	\subfigure[]{
+%		%\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_himmelblaus.pdf}
+%		\label{fig:mc_himmelblaus}
+%	}
 	
 	\caption{Level curves of the Rastringin and Himmelblau's functions, respectively, with optimal points (white dots) obtained by the 20 thousand MC simulations ($N = 20000$).}
 	
