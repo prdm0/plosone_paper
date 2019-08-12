@@ -89,6 +89,8 @@
 	urlcolor=cyan
 }
 
+\captionsetup[labelformat = parens]{labelformat=simple, labelsep=colon}
+
 \begin{document}
 \vspace*{0.2in}
 
@@ -101,7 +103,7 @@ Pedro Rafael D. Marinho \textsuperscript{1${*}$},
 Rodrigo B. Silva\textsuperscript{1},
 Marcelo Bourguignon\textsuperscript{2},
 Gauss M. Cordeiro \textsuperscript{3},
-Saralees Nadarajah\textsuperscript{4},
+Saralees Nadarajah\textsuperscript{4}
 \\
 \bigskip
 \textbf{1} Department of Statistics, Federal University of Para\'{i}ba, João Pessoa, Paraíba, Brazil
@@ -442,7 +444,7 @@ R> result_nelder_f <- optim(par = 0, fn = f, lower = -2.5, upper = 2.5,
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm,height=8cm]{plot_f}
+%\includegraphics[width=8cm,height=8cm]{plot_f}
 \caption{$f(\theta) = 6 + \theta^2 \sin(14\theta)$ with global minimum estimates.}
 \label{fig:f}
 \end{figure}
@@ -1225,7 +1227,7 @@ To further facilitate the reproduction of the simulations for the considered obj
 \end{itemize} 
 
 
-With the code attached (see \ref{code:simulation_mc}), the simulations of MC for the Rastrigin (Eq. \ref{eq:rastringin}) and function of Himmelblau's (Eq. \ref{eq:himmelblaus}) simulations can be reproduced making \texttt{simulation\_mc(mc = 2e4, FUN = "rastrigin")} and \texttt{simulation\_mc(mc = 2e4, FUN = "himmelblaus")}, respectively. The MC simulation that subjected the \texttt{pso()} function to optimize the Rastringin function took approximately 3.77 hours with the hardwares considered. A much shorter time was required to perform MC simulations for the Himmelblau's function (Eq. \ref{eq:himmelblaus}) because of its simplicity compared to the Rastrigin function (Eq. \ref{eq:rastringin}), taking about 4.58 minutes.
+With the code attached (see \ref{code:simulation_mc}), the simulations of MC for the Rastrigin (Eq. \ref{eq:rastringin}) and function of Himmelblau's (Eq. \ref{eq:himmelblaus}) simulations can be reproduced making \texttt{simulation\_mc(mc = 2e4L, FUN = "rastrigin")} and \texttt{simulation\_mc(mc = 2e4L, FUN = "himmelblaus")}, respectively. The MC simulation that subjected the \texttt{pso()} function to optimize the Rastringin function took approximately 3.77 hours with the hardwares considered. A much shorter time was required to perform MC simulations for the Himmelblau's function (Eq. \ref{eq:himmelblaus}) because of its simplicity compared to the Rastrigin function (Eq. \ref{eq:rastringin}), taking about 4.58 minutes.
 
 The first MC simulation considered the Rastringin function (Eq. \ref{eq:rastringin}). The results of each iteration of MC are represented as white dots in the graph of surface level curves, as shown in Fig \ref{fig:mc_rastringin}. Similarly, each of the 20,000 MC simulations that submitted the \texttt{pso()} function to the optimization process of the Himmelblau's function (Eq. \ref{eq:himmelblaus}) are shown in the graph of the level curves of the function of Himmelblau's, as can be seen in Fig \ref{fig:mc_himmelblaus}.
 
@@ -1236,14 +1238,14 @@ The function \texttt{pso()} also provides good results when submitted to the opt
 
 \begin{figure}[H]
 	\centering
-%	\subfigure[]{
+	\subfigure{
 %		%\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_rastrigin.pdf}
-%		\label{fig:mc_rastringin}
-%	}
-%	\subfigure[]{
+		\label{fig:mc_rastringin}
+	}
+	\subfigure{
 %		%\includegraphics[width=6.0cm,height=6.0cm]{monte_carlo_himmelblaus.pdf}
-%		\label{fig:mc_himmelblaus}
-%	}
+		\label{fig:mc_himmelblaus}
+	}
 	
 	\caption{Level curves of the Rastringin and Himmelblau's functions, respectively, with optimal points (white dots) obtained by the 20 thousand MC simulations ($N = 20000$).}
 	
@@ -1443,10 +1445,10 @@ simulation_mc <- function(mc = 20e3L, FUN = "rastrigin",
 }
 
 # Saving Results ----------------------------------------------------------
-result_rastrigin <- simulation_mc(mc = 2e4, FUN = "rastrigin")
+result_rastrigin <- simulation_mc(mc = 2e4L, FUN = "rastrigin")
 save(file = "simulation_rastrigin.RData",  result_rastrigin)
 
-result_himmelblaus <- simulation_mc(mc = 2e4, FUN = "himmelblaus")
+result_himmelblaus <- simulation_mc(mc = 2e4L, FUN = "himmelblaus")
 save(file = "simulation_himmelblaus.RData", result_himmelblaus)
 \end{verbatim}
 
